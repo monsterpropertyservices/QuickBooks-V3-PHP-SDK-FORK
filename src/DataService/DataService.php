@@ -922,7 +922,7 @@ class DataService
      * @throws IdsException, SdkException
      *
      */
-    public function DownloadPDF($entity, $dir=null, $returnPdfString = false)
+    public function DownloadPDF($entity, ?string $dir=null, $returnPdfString = false)
     {
         $this->validateEntityId($entity);
         $this->verifyOperationAccess($entity, __FUNCTION__);
