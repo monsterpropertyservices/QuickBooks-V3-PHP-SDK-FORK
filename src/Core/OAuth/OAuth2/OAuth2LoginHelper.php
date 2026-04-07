@@ -230,7 +230,7 @@ class OAuth2LoginHelper
      *
      * @return $this
      */
-    public function setLogForOAuthCalls($enableLogs, $debugMode, $new_log_location = null)
+    public function setLogForOAuthCalls($enableLogs, $debugMode, ?String $new_log_location = null)
     {
         if ($enableLogs) {
           $this->RequestLogging = new LogRequestsToDisk(true, $new_log_location);
@@ -517,7 +517,7 @@ class OAuth2LoginHelper
      * @param String  $body       The JSON String contains all the OAuth 2 Access token information
      * @param String  $realmID    The realmID returned from authorization Code steps.It does not require for refresh token
      */
-    private function parseNewAccessTokenFromResponse($body, $realmID = null){
+    private function parseNewAccessTokenFromResponse($body, ?string $realmID = null){
         if(is_string($body)){
            $json_body = json_decode($body, true);
            if(json_last_error() === JSON_ERROR_NONE){

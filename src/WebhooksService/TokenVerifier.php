@@ -38,7 +38,7 @@ final class TokenVerifier
      *      True if same false otherwise
      */
 
-    public function verifyPayLoad($payLoad, $sig, $algo = null)
+    public function verifyPayLoad($payLoad, $sig, ?string $algo = null)
     {
         $encryptedPayload = $this->encryptPayLoadBasedOnToken($payLoad, $algo);
         if (strcmp($sig, $encryptedPayload) == 0) {

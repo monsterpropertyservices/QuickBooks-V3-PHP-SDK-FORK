@@ -28,7 +28,7 @@ abstract class AbstractEntity
      * Specify type of the property if it's known
      * @param string $value
      */
-    public function __construct($value = null)
+    public function __construct(?string $value = null)
     {
         $this->setType($value);
     }

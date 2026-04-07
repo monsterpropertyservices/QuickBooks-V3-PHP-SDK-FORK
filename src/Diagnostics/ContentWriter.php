@@ -43,7 +43,7 @@ class ContentWriter
      */
     private $handler = null;
 
-    public function __construct($content = null)
+    public function __construct(mixed $content = null)
     {
         $this->content = $content;
     }

@@ -85,7 +85,7 @@ class FaultHandler
      * @param OAuthException Coming From OAuth 1.2.3 extension
      * @deprecated
      */
-    public function __construct($context = null, $OAuthException = null)
+    public function __construct($context = null, ?OAuthException $OAuthException = null)
     {
         if($context == null && $OAuthException == null) return;
         $this->context = $context;

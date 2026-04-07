@@ -199,7 +199,7 @@ class Batch
      * @param OperationEnum operation operation to be performed for the entity.
      * @param string optionsdata to send with this specific batch item (example - allowduplicatedocnumber for invoices)
      */
-     public function AddEntity($entity, $id, $operation, $optionsData = null)
+     public function AddEntity($entity, $id, $operation, ?string $optionsData = null)
      {
          if (!$entity) {
              $exception = new IdsException('StringParameterNullOrEmpty: entity');

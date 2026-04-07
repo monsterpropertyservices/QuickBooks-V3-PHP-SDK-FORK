@@ -632,7 +632,7 @@ class DataService
      * @param string|null $email
      * @return null|string
      */
-    private function sendRequestParseResponseBodyAndHandleHttpError($entity, $uri, $httpsPostBody, $CALLINGMETHOD, $boundaryString = null, $email = null)
+    private function sendRequestParseResponseBodyAndHandleHttpError($entity, $uri, $httpsPostBody, $CALLINGMETHOD, ?string $boundaryString = null, ?string $email = null)
     {
         if ($this->isCreditCardPaymentTxn($entity)) {
             $uri = str_replace("creditcardpaymenttxn", "creditcardpayment", $uri);
@@ -745,7 +745,7 @@ class DataService
      * @return IPPIntuitEntity Returns an entity of specified Id.
      * @throws IdsException
      */
-    public function FindById($entity, $Id = null)
+    public function FindById($entity, string|int|null $Id = null)
     {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method FindById.");
         if(is_object($entity)){
@@ -962,7 +962,7 @@ class DataService
      * @throws IdsException, SdkException
      *
      */
-    public function SendEmail($entity, $email = null)
+    public function SendEmail($entity, ?string $email = null)
     {
         $this->validateEntityId($entity);
         $this->verifyOperationAccess($entity, __FUNCTION__);
@@ -996,7 +996,7 @@ class DataService
      * @param string $includes A list of additional fields requested in the entities response
      * @return array Returns an array of entities fulfilling the query. If the response is Empty, it will return NULL
      */
-    public function Query($query, $startPosition = null, $maxResults = null, $includes = null)
+    public function Query($query, ?int $startPosition = null, ?int $maxResults = null, ?string $includes = null)
     {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Query.");
 
@@ -1316,7 +1316,7 @@ class DataService
      * @return IntuitRecurringTransactionResponse Returns the RecurringTransaction created for the entity.
      * @throws IdsException
      */
-    public function findRecurringTransactionById($Id = null)
+    public function findRecurringTransactionById(int|string|null $Id = null)
     {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method findRecurringTransactionById.");
 
@@ -1527,7 +1527,7 @@ class DataService
      * @param string $apiName
      * @return RequestParameters
      */
-    protected function getRequestParameters($uri, $method, $type, $apiName = null)
+    protected function getRequestParameters($uri, $method, $type, ?string $apiName = null)
     {
         return new RequestParameters($uri, $method, $type, $apiName);
     }
@@ -1664,7 +1664,7 @@ class DataService
      * @param string $fileName
      * @return mixed full path with filename or open handler
      */
-    protected function processDownloadedContent(ContentWriter $writer, $responseCode, $dir, $fileName = null)
+    protected function processDownloadedContent(ContentWriter $writer, $responseCode, $dir, ?string $fileName = null)
     {
         $writer->setPrefix($this->getPrefixFromSettings());
         try {

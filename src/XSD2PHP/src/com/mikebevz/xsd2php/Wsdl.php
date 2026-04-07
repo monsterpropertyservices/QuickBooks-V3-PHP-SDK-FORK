@@ -135,7 +135,7 @@ class Wsdl extends Common
      *
      * @return void
      */
-    public function __construct($class = null)
+    public function __construct(string|object|null $class = null)
     {
         if ($class != null) {
             $this->class = $class;
@@ -153,7 +153,7 @@ class Wsdl extends Common
      * @throws RuntimeException If given class is neither class nor string
      * @throws RuntimeException If given class is not found, ie was not included before
      */
-    public function getWsdl($class = null)
+    public function getWsdl(string|object|null $class = null)
     {
         /*
         if ($class != null) {

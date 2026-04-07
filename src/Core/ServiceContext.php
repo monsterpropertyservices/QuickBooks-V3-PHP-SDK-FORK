@@ -88,7 +88,7 @@ class ServiceContext
      * @throws InvalidTokenException If the token is invalid.
      * @return ServiceContext Returns ServiceContext object.
      */
-    private function __construct($realmId, $serviceType = CoreConstants::IntuitServicesTypeQBO, $requestValidator = null, $ippConfiguration = null)
+    private function __construct($realmId, $serviceType = CoreConstants::IntuitServicesTypeQBO, ?RequestValidator $requestValidator = null, ?IppConfiguration $ippConfiguration = null)
     {
         if (isset($ippConfiguration)) {
             //$this->IppConfiguration = LocalConfigReader::ReadConfiguration();

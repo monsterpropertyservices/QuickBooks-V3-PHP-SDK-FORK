@@ -152,7 +152,7 @@ class FacadeHelper{
     *         false
     *             If the key is not found in the complex type
     */
-   private static function isKeyInComplexList($key, $complexList = NULL){
+   private static function isKeyInComplexList($key, mixed $complexList = NULL){
      if(isset($complexList)) {$ObjectMap = $complexList;}
      else {$ObjectMap = FacadeClassMapper::classMethodToList();}
 

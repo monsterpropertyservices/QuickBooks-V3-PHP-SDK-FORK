@@ -14,7 +14,7 @@ class ReflectionUtil
      *
      * @return array
      */
-    public static function loadWebServicesClassAndReturnNames($dir = null)
+    public static function loadWebServicesClassAndReturnNames(?string $dir = null)
     {
         if ($dir == null) {
             $dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . UtilityConstants::WEBHOOKSDIR;
@@ -44,7 +44,7 @@ class ReflectionUtil
      *      If the class name can be found in Webhooks Service, return the name; otherwise, return null.
      *
      */
-    public static function isValidWebhooksClass($className, $classCollection = null)
+    public static function isValidWebhooksClass($className, mixed $classCollection = null)
     {
         if (!isset($classCollection)) {
             $classCollection = ReflectionUtil::loadWebServicesClassAndReturnNames();

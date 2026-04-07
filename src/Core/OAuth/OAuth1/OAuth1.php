@@ -256,7 +256,7 @@ class OAuth1{
    * @param Array $queryParameters    The queryParameters to be included
    * @return Array $queryParameters   The complete query parameters
    */
-  private function appendOAuthPartsTo(array $queryParameters = null){
+  private function appendOAuthPartsTo(?array $queryParameters = null){
       if($queryParameters == null){
           $queryParameters = array();
       }

@@ -266,7 +266,7 @@ class Zend_Soap_AutoDiscover implements Zend_Server_Interface
      *
      * @return $this
      */
-    public function setClass($class, $namespace = '', $argv = null)
+    public function setClass($class, $namespace = '', mixed $argv = null)
     {
         $uri = $this->getUri();
 

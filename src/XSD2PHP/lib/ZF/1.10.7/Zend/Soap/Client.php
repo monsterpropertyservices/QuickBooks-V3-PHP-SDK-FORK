@@ -145,7 +145,7 @@ class Zend_Soap_Client
      * @param string $wsdl
      * @param array $options
      */
-    public function __construct($wsdl = null, $options = null)
+    public function __construct($wsdl = null, ?array $options = null)
     {
         if (!extension_loaded('soap')) {
             require_once 'Zend/Soap/Client/Exception.php';
@@ -979,7 +979,7 @@ class Zend_Soap_Client
      * @param int    $one_way
      * @return mixed
      */
-    public function _doRequest(Zend_Soap_Client_Common $client, $request, $location, $action, $version, $one_way = null)
+    public function _doRequest(Zend_Soap_Client_Common $client, $request, $location, $action, $version, ?int $one_way = null)
     {
         // Perform request as is
         if ($one_way == null) {

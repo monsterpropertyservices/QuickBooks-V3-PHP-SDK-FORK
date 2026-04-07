@@ -46,7 +46,7 @@ class Zend_Soap_Client_DotNet extends Zend_Soap_Client
      * @param string $wsdl
      * @param array $options
      */
-    public function __construct($wsdl = null, $options = null)
+    public function __construct($wsdl = null, ?array $options = null)
     {
         // Use SOAP 1.1 as default
         $this->setSoapVersion(SOAP_1_1);
