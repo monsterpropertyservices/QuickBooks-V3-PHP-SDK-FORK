@@ -78,7 +78,7 @@ class Php2Xml extends Common
         $this->buildXml();
     }
 
-    public function getXml(?string $phpClass = null)
+    public function getXml(mixed $phpClass = null)
     {
         if ($this->phpClass == null && $phpClass == null) {
             throw new \RuntimeException("Php class is not set");
