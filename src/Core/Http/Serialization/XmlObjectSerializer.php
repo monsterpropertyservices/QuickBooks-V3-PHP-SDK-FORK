@@ -179,7 +179,7 @@ class XmlObjectSerializer extends IEntitySerializer
      * Initializes a new instance of the XmlObjectSerializer class.
      * @param Logger idsLogger The ids logger.
      */
-    public function __construct($idsLogger = null)
+    public function __construct(?Logger $idsLogger = null)
     {
         if ($idsLogger) {
             self::$IDSLogger = $idsLogger;

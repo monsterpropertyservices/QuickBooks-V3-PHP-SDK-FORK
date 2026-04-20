@@ -59,7 +59,7 @@ class Php2Xml extends Common
      *
      * @return void
      */
-    public function __construct($classPrefix, $phpClass = null)
+    public function __construct($classPrefix, ?string $phpClass = null)
     {
         parent::__construct($classPrefix);
 
@@ -78,7 +78,7 @@ class Php2Xml extends Common
         $this->buildXml();
     }
 
-    public function getXml($phpClass = null)
+    public function getXml(mixed $phpClass = null)
     {
         if ($this->phpClass == null && $phpClass == null) {
             throw new \RuntimeException("Php class is not set");

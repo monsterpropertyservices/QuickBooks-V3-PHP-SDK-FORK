@@ -56,7 +56,7 @@ class Zend_Soap_Client_Local extends Zend_Soap_Client
      * @param string $wsdl
      * @param array $options
      */
-    public function __construct(Zend_Soap_Server $server, $wsdl, $options = null)
+    public function __construct(Zend_Soap_Server $server, $wsdl, ?array $options = null)
     {
         $this->_server = $server;
 
@@ -78,7 +78,7 @@ class Zend_Soap_Client_Local extends Zend_Soap_Client
      * @param int    $one_way
      * @return mixed
      */
-    public function _doRequest(Zend_Soap_Client_Common $client, $request, $location, $action, $version, $one_way = null)
+    public function _doRequest(Zend_Soap_Client_Common $client, $request, $location, $action, $version, ?int $one_way = null)
     {
         // Perform request as is
         ob_start();

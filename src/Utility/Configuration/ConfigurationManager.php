@@ -24,7 +24,7 @@ class ConfigurationManager
         return simplexml_load_file($fileName);
     }
 
-    private static function getSettings($xmlObj, $xpath, $name = null)
+    private static function getSettings($xmlObj, $xpath, ?string $name = null)
     {
         $result = $xmlObj->xpath($xpath);
 

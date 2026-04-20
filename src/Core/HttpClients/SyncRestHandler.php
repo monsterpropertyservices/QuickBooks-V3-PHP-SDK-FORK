@@ -50,7 +50,7 @@ class SyncRestHandler extends RestHandler
     * @param ServiceContext   $context    The service context used for the request
     * @param HttpClientInterface $client  The http client used for the request
     */
-    public function __construct($context, HttpClientInterface $client = null)
+    public function __construct($context, ?HttpClientInterface $client = null)
     {
         parent::__construct($context);
         $this->context = $context;

@@ -28,7 +28,7 @@ class CurlHttpClient implements HttpClientInterface{
      * The constructor for constructing the cURL http client for making API calls
      * @param BaseCurl $curl    A predefined BaseCurl instance to be used in this client
      */
-    public function __construct(BaseCurl $curl = null)
+    public function __construct(?BaseCurl $curl = null)
     {
         if(isset($curl)){
               $this->basecURL = $curl;
@@ -118,8 +118,8 @@ class CurlHttpClient implements HttpClientInterface{
      */
     public function setIntuitResponse($response){
         $headerSize = $this->basecURL->getInfo(CURLINFO_HEADER_SIZE);
-        $rawHeaders = mb_substr($response, 0, $headerSize);
-        $rawBody = mb_substr($response, $headerSize);
+        $rawHeaders = substr($response, 0, $headerSize);
+        $rawBody = substr($response, $headerSize);
         $httpStatusCode = $this->basecURL->getInfo(CURLINFO_HTTP_CODE);
         $theIntuitResponse = new IntuitResponse($rawHeaders, $rawBody, $httpStatusCode, true);
         $this->intuitResponse = $theIntuitResponse;
