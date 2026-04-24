@@ -220,7 +220,8 @@ class SyncRestHandler extends RestHandler
         //for 3xx without direct, it will throw a 503 code and error saying: Invalid protected resource url, unable to generate signature base string
         if($faultHandler) {
             if($throwExceptionOnError == true){
-                throw new ServiceException("Request is not made successful. Response Code:[" . $faultHandler->getHttpStatusCode() . "] with body: [" . $faultHandler->getResponseBody() . "].", $faultHandler->getHttpStatusCode());
+                $errorContext = "[METHOD=$HttpMethod URI=$requestUri BODY=" . substr((string)$requestBody, 0, 500) . "]";
+                throw new ServiceException("Request is not made successful. Response Code:[" . $faultHandler->getHttpStatusCode() . "] with body: [" . $faultHandler->getResponseBody() . "]. Context:" . $errorContext, $faultHandler->getHttpStatusCode());
             }else{
                 $this->faultHandler = $faultHandler;
                 return null;
