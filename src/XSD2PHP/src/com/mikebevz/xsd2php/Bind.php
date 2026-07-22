@@ -132,7 +132,14 @@ class Bind extends Common
                 try {
                     $propertyDocs = $refl->getProperty($name)->getDocComment();
                 } catch (\ReflectionException $e) {
-                    throw new \RuntimeException($e->getMessage() . ". Class " . get_class($model));
+                    // Forward-compat (2026-07): QuickBooks periodically adds new response
+                    // fields the pinned SDK model does not declare yet (e.g. AllowOnlineAffirmPayment,
+                    // which threw here and blinded EVERY invoice fetch until the property was added).
+                    // A single unknown element must NEVER break deserialization of the whole entity:
+                    // skip it and log so the field can be added to the model deliberately later.
+                    // Nothing has been written to $model at this point, so skipping is side-effect-free.
+                    error_log('xsd2php Bind: skipping unknown QB element "' . $name . '" on ' . get_class($model) . ' - ' . $e->getMessage());
+                    continue;
                 }
                 $docs = $this->parseDocComments($propertyDocs);
                 $className = $docs['var'];
