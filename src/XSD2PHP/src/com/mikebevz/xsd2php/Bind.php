@@ -138,7 +138,7 @@ class Bind extends Common
                     // A single unknown element must NEVER break deserialization of the whole entity:
                     // skip it and log so the field can be added to the model deliberately later.
                     // Nothing has been written to $model at this point, so skipping is side-effect-free.
-                    error_log('xsd2php Bind: skipping unknown QB element "' . $name . '" on ' . get_class($model) . ' — ' . $e->getMessage());
+                    error_log('xsd2php Bind: skipping unknown QB element "' . $name . '" on ' . get_class($model) . ' - ' . $e->getMessage());
                     continue;
                 }
                 $docs = $this->parseDocComments($propertyDocs);
